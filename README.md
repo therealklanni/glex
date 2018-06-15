@@ -34,6 +34,7 @@ Keys:
 ## Related tools
 
 [gsex](https://github.com/therealklanni/gsex) - g(it) s(tash) ex(plorer)
+
 [gdex](https://github.com/therealklanni/gdex) - g(it) d(iff) ex(plorer)
 
 ## License
