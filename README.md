@@ -2,6 +2,8 @@
 
 > Interactive `git log` explorer using [`fzf`](https://github.com/junegunn/fzf)
 
+![demo](demo.gif)
+
 ## Installation
 
 CURL:
