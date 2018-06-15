@@ -1,6 +1,6 @@
-# g(it) s(tash) ex(plorer)
+# g(it) l(og) ex(plorer)
 
-> Interactive `git stash` explorer using [`fzf`](https://github.com/junegunn/fzf)
+> Interactive `git log` explorer using [`fzf`](https://github.com/junegunn/fzf)
 
 ## Installation
 
