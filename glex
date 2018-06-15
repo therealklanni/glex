@@ -1,0 +1,41 @@
+#!/usr/bin/env zsh
+
+# Exit if fzf not installed
+command -v fzf > /dev/null || ( echo "Please install fzf to use glex" && exit 1 )
+
+ERROR=$(git log -1 2>&1 >/dev/null)
+rc=$?
+
+# Exit on error
+if [ $rc -ne 0 ]; then
+  echo "$ERROR"
+  exit $rc
+fi
+
+while out=$(git log --pretty=oneline --abbrev-commit "$@" |
+            fzf --ansi --no-sort --reverse --print-query --query="$query" \
+                --preview 'git show -U1 --stat --pretty=fuller --notes --color=always \
+                  -p $(echo {} | grep -o "[a-f0-9]\{7\}")' \
+                --preview-window=bottom:75% --expect=ctrl-m,ctrl-b,del); do
+    # Tokenize selection by newline
+    selection=("${(f)out}")
+
+    # Keep the query accross fzf calls
+    query="$selection[1]"
+
+    # Represents the stash, e.g. stash{1}
+    reflog_selector=$(echo "$selection[3]" | grep -o "[a-f0-9]\{7\}")
+
+    case "$selection[2]" in
+        # enter or ctrl-m is just a diff
+        ctrl-m)
+            git show --patience --color=always -p "$reflog_selector" | less -R
+            ;;
+        # ctrl-b checks out the git hash as a branch
+        ctrl-b)
+            sha=$(echo "$selection[3]" | grep -o '[a-f0-9]\{7\}')
+            git checkout -b "branch-$sha" "$reflog_selector"
+            break
+            ;;
+    esac
+done

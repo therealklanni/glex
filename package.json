@@ -1,0 +1,27 @@
+{
+  "name": "glex",
+  "version": "0.1.0",
+  "description": "(g)it (l)og (ex)plorer",
+  "main": "glex",
+  "bin": "glex",
+  "scripts": {
+    "test": "echo 'It works!'"
+  },
+  "keywords": [
+    "git",
+    "log",
+    "zsh",
+    "fzf",
+    "preview"
+  ],
+  "author": "Kevin Lanni <therealklanni@gmail.com> (https://github.com/therealklanni)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/therealklanni/glex.git"
+  },
+  "bugs": {
+    "url": "https://github.com/therealklanni/glex/issues"
+  },
+  "homepage": "https://github.com/therealklanni/glex#readme"
+}
