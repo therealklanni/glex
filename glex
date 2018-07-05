@@ -14,7 +14,7 @@ fi
 
 while out=$(git log --pretty=oneline --abbrev-commit "$@" |
             fzf --ansi --no-sort --reverse --print-query --query="$query" \
-                --preview 'git show -U1 --stat --pretty=fuller --notes --color=always \
+                --preview 'git show -U1 --show-signature --stat --pretty=fuller --notes --color=always \
                   -p $(echo {} | grep -o "[a-f0-9]\{7\}")' \
                 --preview-window=bottom:75% --expect=ctrl-m,ctrl-b,del); do
     # Tokenize selection by newline
