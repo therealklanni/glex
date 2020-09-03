@@ -1,4 +1,4 @@
-# g(it) l(og) ex(plorer)
+# g(it) l(og) ex(plorer) ![](https://img.shields.io/npm/dt/glex?logo=npm)
 
 > Interactive `git log` explorer using [`fzf`](https://github.com/junegunn/fzf)
 
